@@ -26,8 +26,6 @@ export class UserService {
     }
 
     updateEmpleado(id: number, employee: EmployeeRegistrationDTO) {
-        console.log("KILOOOOOOOOOOOOOOOOOO")
-        console.log(employee)
         return axios.put<EmployeeRegistrationDTO>(`${this.apiUrl}/${id}`, employee);
     }
 
