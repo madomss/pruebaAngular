@@ -35,10 +35,6 @@ export class UserAddComponent implements OnInit {
     this._employeeService.addEmpleado(this.employee)
       .then((response: any) => {
         alert('Empleado agregado exitosamente!');
-        console.log("HOLA")
-        console.log(response.data)
-        console.log("CHAO")
-        console.log(this.employee)
         response.data;
       }).catch((error: any) => {
         console.error(error);
