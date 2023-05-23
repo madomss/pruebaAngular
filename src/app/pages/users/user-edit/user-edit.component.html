@@ -1,0 +1,100 @@
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+
+                <form #employeeForm="ngForm" *ngIf="employee" (ngSubmit)="editarEmpleado(employee.id)" novalidate>
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="cedula">Cédula:</label>
+                            <input *ngIf="employee" type="text" class="form-control" id="cedula" name="cedula"
+                                [(ngModel)]="employee.cedula" required #cedula="ngModel">
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="nombres">Nombres:</label>
+                            <input *ngIf="employee" type="text" class="form-control" id="nombres" name="nombres"
+                                [(ngModel)]="employee.nombres" required #nombres="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="apellidos">Apellidos:</label>
+                            <input *ngIf="employee" type="text" class="form-control" id="apellidos" name="apellidos"
+                                [(ngModel)]="employee.apellidos" required #apellidos="ngModel">
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="email">Email:</label>
+                            <input *ngIf="employee" type="email" class="form-control" id="email" name="email"
+                                [(ngModel)]="employee.email" required #email="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="genero">Genero:</label>
+                            <select class="form-select" id="genero" name="genero" *ngIf="employee"
+                                [(ngModel)]="employee.genero" required #genero="ngModel">
+                                <option selected disabled>Seleccione Género</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="nacionalidad">Nacionalidad:</label>
+                            <input *ngIf="employee" type="nacionalidad" class="form-control" id="nacionalidad"
+                                name="nacionalidad" [(ngModel)]="employee.nacionalidad" required
+                                #nacionalidad="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="fecha_nacimiento">Fecha Nacimiento:</label>
+                            <input *ngIf="employee" type="date" class="form-control" id="fecha_nacimiento"
+                                name="fecha_nacimiento" [ngModel]="employee.fecha_nacimiento"
+                                (ngModelChange)="employee.fecha_nacimiento = $event" required
+                                #fecha_nacimiento="ngModel">
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="fecha_vencimiento_ci">Fecha Vencimiento CI:</label>
+                            <input *ngIf="employee" type="date" class="form-control" id="fecha_vencimiento_ci"
+                                name="fecha_vencimiento_ci" [ngModel]="employee.fecha_vencimiento_ci"
+                                (ngModelChange)="employee.fecha_vencimiento_ci = $event" required
+                                #fecha_vencimiento_ci="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="cedula_file">Documento Cédula:</label>
+                            <input *ngIf="employee" type="text" class="form-control" id="cedula_file" name="cedula_file"
+                                [(ngModel)]="employee.cedula_file" required #cedula_file="ngModel">
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="foto_file">Documento Foto:</label>
+                            <input *ngIf="employee" type="text" class="form-control" id="foto_file" name="foto_file"
+                                [(ngModel)]="employee.foto_file" required #foto_file="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Guardar
+                            cambios</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

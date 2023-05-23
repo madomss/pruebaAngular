@@ -1,0 +1,42 @@
+<div class="align-items-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cédula</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Fecha Nacimiento</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nacionalidad</th>
+                <th scope="col">Fecha Vencimiento Cédula</th>
+                <th scope="col">Documento Cédula</th>
+                <th scope="col">Documento Foto</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.cedula}}</td>
+                <td>{{employee.nombres}}</td>
+                <td>{{employee.apellidos}}</td>
+                <td>{{employee.genero}}</td>
+                <td>{{employee.fecha_nacimiento | date: 'dd/MM/yyyy'}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.nacionalidad}}</td>
+                <td>{{employee.fecha_vencimiento_ci | date: 'dd/MM/yyyy'}}</td>
+                <td>{{employee.cedula_file}}</td>
+                <td>{{employee.foto_file}}</td>
+                <td>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal"
+                        (click)="editEmpleado(employee)">Editar</button>
+                    <button class="btn btn-danger" (click)="eliminarEmpleado(employee.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-user-edit 
+[employee]="selectedEmployee" 
+></app-user-edit>

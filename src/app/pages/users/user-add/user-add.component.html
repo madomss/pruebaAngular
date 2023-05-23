@@ -1,0 +1,191 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+    <div class="container mt-4 w-sm-25">
+        <div class="card">
+            <h5 class="card-header text-center">Agregar información básica del empleado</h5>
+            <div class="card-body justify-content-center">
+                <form #employeeForm="ngForm" (ngSubmit)="agregarEmpleado()" novalidate>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="cedula">Cédula:</label>
+                            <input type="text" class="form-control" id="nacionalidad" name="cedula"
+                                [(ngModel)]="employee.cedula" required #cedula="ngModel">
+                            <div *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)" class="text-danger">Campo
+                                requerido</div>
+                        </div>
+
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="nombres">Nombres:</label>
+                            <input type="text" class="form-control" id="nombres" name="nombres"
+                                [(ngModel)]="employee.nombres" required #nombres="ngModel">
+                            <div *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)" class="text-danger">Campo
+                                requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos"
+                                [(ngModel)]="employee.apellidos" required #apellidos="ngModel">
+                            <div *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="employee.email"
+                                required #email="ngModel">
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="genero">Género:</label>
+                            <select class="form-select" id="genero" name="genero" [(ngModel)]="employee.genero" required
+                                #genero="ngModel">
+                                <option selected disabled>Seleccione Género</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                            <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="nacionalidad">Nacionalidad:</label>
+                            <input type="text" class="form-control" id="nacionalidad" name="nacionalidad"
+                                [(ngModel)]="employee.nacionalidad" required #nacionalidad="ngModel">
+                            <div *ngIf="nacionalidad.invalid && (nacionalidad.dirty || nacionalidad.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+                                [(ngModel)]="employee.fecha_nacimiento" required #fechaNacimiento="ngModel">
+                            <div *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="fecha_vencimiento">Fecha Vencimiento CI:</label>
+                            <input type="date" class="form-control" id="fecha_vencimiento_ci"
+                                name="fecha_vencimiento_ci" [(ngModel)]="employee.fecha_vencimiento_ci" required
+                                #fechaVencimientoCI="ngModel">
+                            <div *ngIf="fechaVencimientoCI.invalid && (fechaVencimientoCI.dirty || fechaVencimientoCI.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="cedula_file" class="form-label">Documento Cédula:</label>
+                            <input class="form-control" type="text" id="cedula_file" name="cedula_file"
+                                [(ngModel)]="employee.cedula_file" required #cedulaFile="ngModel">
+                            <div *ngIf="cedulaFile.invalid && (cedulaFile.dirty || cedulaFile.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="foto_file" class="form-label">Documento Foto:</label>
+                            <input class="form-control" type="text" id="foto_file" name="foto_file"
+                                [(ngModel)]="employee.foto_file" required #fotoFile="ngModel">
+                            <div *ngIf="fotoFile.invalid && (fotoFile.dirty || fotoFile.touched)" class="text-danger">Campo requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-lg" type="submit" [disabled]="employeeForm.invalid">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+    <div class="container mt-4 w-sm-25">
+        <div class="card">
+            <h5 class="card-header text-center">Agregar información básica del empleado</h5>
+            <div class="card-body justify-content-center">
+                <form>
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="nacionalidad">Cédula:</label>
+                            <input type="text" class="form-control" id="cedula" [(ngModel)]="employee.cedula"
+                                required>
+                        </div>
+
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="nombres">Nombres:</label>
+                            <input type="text" class="form-control" id="nombres" [(ngModel)]="employee.nombres"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 w-50">
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" class="form-control" id="apellidos" [(ngModel)]="employee.apellidos"
+                                required>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" [(ngModel)]="employee.email" required>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="genero">Género:</label>
+                            <select class="form-select" id="genero" [(ngModel)]="employee.genero" required>
+                                <option selected disabled>Seleccione Género</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="nacionalidad">Nacionalidad:</label>
+                            <input type="text" class="form-control" id="nacionalidad"
+                                [(ngModel)]="employee.nacionalidad" required>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento"
+                                [(ngModel)]="employee.fecha_nacimiento" required>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="fecha_vencimiento">Fecha Vencimiento CI:</label>
+                            <input type="date" class="form-control" id="fecha_vencimiento_ci"
+                                [(ngModel)]="employee.fecha_vencimiento_ci" required>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group mb-3 mr-3 w-50">
+                            <label for="cedula_file" class="form-label">Documento Cédula:</label>
+                            <input class="form-control" type="text" id="cedula_file" [(ngModel)]="employee.cedula_file"
+                                required>
+                        </div>
+
+                        <div class="form-group mb-3 w-50">
+                            <label for="foto_file" class="form-label">Documento Foto:</label>
+                            <input class="form-control" type="text" id="foto_file" [(ngModel)]="employee.foto_file"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-lg" type="submit"
+                            (click)="agregarEmpleado()">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
