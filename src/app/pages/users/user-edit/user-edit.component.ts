@@ -51,6 +51,7 @@ export class UserEditComponent implements OnInit {
 
     this._employeeService.updateEmpleado(id, this.employeeDto).then((response: any) => {
       alert('Empleado modificado exitosamente!');
+      console.log("Esto es el main")
       response.data;
       console.log(response.data)
     }).catch((error: any) => {
