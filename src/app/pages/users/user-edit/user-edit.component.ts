@@ -48,7 +48,7 @@ export class UserEditComponent implements OnInit {
     this.employeeDto.foto_file = this.employee?.foto_file;
 
     this._employeeService.updateEmpleado(id, this.employeeDto).then((response: any) => {
-      alert('Empleado modificado exitosamente!');
+      alert('Empleado modificado exitosamente');
       response.data;
     }).catch((error: any) => {
       console.error(error);
